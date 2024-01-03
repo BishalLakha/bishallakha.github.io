@@ -79,7 +79,7 @@ quora_username: # your Quora username
 publons_id: # your ID on Publons
 lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 osf_id: # your OSF ID
-research_gate_profile: # your profile on ResearchGate
+research_gate_profile: Bishal-Lakha-2 # your profile on ResearchGate
 scopus_id: # your profile on Scopus
 blogger_url: # your blogger URL
 work_url: # work page URL
@@ -107,7 +107,7 @@ contact_note: >
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
-google_analytics:  # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+google_analytics: G-23BSW9DNX1 # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
 cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 google_site_verification:  # your google-site-verification ID (Google Search Console)
