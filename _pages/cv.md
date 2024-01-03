@@ -7,6 +7,11 @@ nav: true
 nav_order: 5
 cv_pdf: Bishal_Lakha_CV.pdf
 ---
+
 <div style="width: 100%; height:800">
-<iframe src="https://bishallakha.github.io//assets/pdf/Bishal_Lakha_CV.pdf" width="100%" height="800"></iframe>
+<iframe
+src="/assets/pdf/Bishal_Lakha_CV.pdf" 
+width="100%" 
+height="800">
+</iframe>
 </div>
