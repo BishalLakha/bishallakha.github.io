@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.boisestate.edu/'>Boise State University</a>. PhD. Computer Science.
+subtitle: <a href='https://www.boisestate.edu/'>Boise State University</a>. PhD Student. Computer Science.
 
 profile:
   align: right
@@ -17,8 +17,12 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi!
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am Bishal. I am a PhD, Computer Science student and Boise State University. I am working with my advisor Dr.[Edoardo Serra](https://sites.google.com/site/serraedoardo/). My research focus is Graph Representation Learning, Graph Explainability, Anomaly Detection and their application in Cyber Security. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I did my Masters in Computer Science from Boise State University and my undergrad in Electronics and Communication Engineering from IOE, Pulchowk Campus, Tribhuvan University, Nepal. 
+
+I am Bishal, currently pursuing a Ph.D. in Computer Science at Boise State University, where I am collaborating with my advisor, Dr. [Edoardo Serra](https://sites.google.com/site/serraedoardo/). My research primarily delves into the realms of Graph Representation Learning, Graph Explainability, and Anomaly Detection, with a specific focus on their applications in Cyber Security.
+
+Prior to this, I completed my Master's degree in Computer Science, also at Boise State University. My undergraduate studies were in Electronics and Communication Engineering, undertaken at the Institute of Engineering, Pulchowk Campus, Tribhuvan University, Nepal.
