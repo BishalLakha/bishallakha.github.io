@@ -7,7 +7,7 @@ subtitle: <a href='https://www.boisestate.edu/'>Boise State University</a>. PhD 
 profile:
   align: right
   image: prof_pic.jpeg
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     
 
