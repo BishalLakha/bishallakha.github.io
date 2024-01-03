@@ -17,12 +17,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hi!
-
-I am Bishal. I am a PhD, Computer Science student and Boise State University. I am working with my advisor Dr.[Edoardo Serra](https://sites.google.com/site/serraedoardo/). My research focus is Graph Representation Learning, Graph Explainability, Anomaly Detection and their application in Cyber Security. 
-
-I did my Masters in Computer Science from Boise State University and my undergrad in Electronics and Communication Engineering from IOE, Pulchowk Campus, Tribhuvan University, Nepal. 
-
 I am Bishal, currently pursuing a Ph.D. in Computer Science at Boise State University, where I am collaborating with my advisor, Dr. [Edoardo Serra](https://sites.google.com/site/serraedoardo/). My research primarily delves into the realms of Graph Representation Learning, Graph Explainability, and Anomaly Detection, with a specific focus on their applications in Cyber Security.
 
 Prior to this, I completed my Master's degree in Computer Science, also at Boise State University. My undergraduate studies were in Electronics and Communication Engineering, undertaken at the Institute of Engineering, Pulchowk Campus, Tribhuvan University, Nepal.
