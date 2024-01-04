@@ -8,6 +8,6 @@ children:
     - title: poems
       permalink: https://lakhabishal.wordpress.com/
     - title: divider
-    - title: blog
-      permalink: /blog/
+    - title: doodles
+      permalink: /projects/
 ---

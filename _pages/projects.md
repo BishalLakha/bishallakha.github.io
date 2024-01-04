@@ -1,8 +1,8 @@
 ---
 layout: page
-title: projects
+title: Doodle Noob
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Journaling my doodling Journey
 nav: false
 nav_order: 3
 display_categories: [work, fun]
