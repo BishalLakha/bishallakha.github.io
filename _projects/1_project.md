@@ -2,9 +2,9 @@
 layout: page
 title: 3 Body Problem
 description: A chaotic dance
-img: assets/img/12.jpg
+img: assets/img/doodles/3-body-problem.jpg
 importance: 1
 category: fun
-permalink: /assets/pdf/doodles/3-body-problem.pdf
+permalink: /assets/img/doodles/3-body-problem.jpg
 ---
 
