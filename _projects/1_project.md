@@ -5,6 +5,6 @@ description: A chaotic dance
 img: assets/img/doodles/3-body-problem.jpg
 importance: 1
 category: fun
-permalink: /assets/img/doodles/3-body-problem.jpg
+permalink: https://drive.google.com/file/d/13qOwOGSQn8iGjXiY0sOdeihKZSslDr0g/view?usp=sharing
 ---
 

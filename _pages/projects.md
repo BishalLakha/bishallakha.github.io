@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Doodle Noob
+title: Doodle Board
 permalink: /projects/
-description: Journaling my doodling Journey
+description: I have recently started to love doodling and telling stories through it. My doodling skills are too basic but I am putting some effort to learn the skill. I am using this page to journal my doodling journey.
 nav: false
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [fun]
 horizontal: false
 ---
 
