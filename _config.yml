@@ -153,9 +153,8 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: towardsdatascience.com
-    rss_url: https://towardsdatascience.com/end-to-end-data-science-example-predicting-diabetes-with-logistic-regression-db9bc88b4d16
-
+  - name: 
+    rss_url: 
 # -----------------------------------------------------------------------------
 # Collections
 # -----------------------------------------------------------------------------
