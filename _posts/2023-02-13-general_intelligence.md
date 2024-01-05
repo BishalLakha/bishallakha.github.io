@@ -40,8 +40,10 @@ In addition to that, the goal-centric criteria for intelligence can have limitat
 
 To sum up, I think Chollet's objection to the goal-centric criteria of intelligence is valid as goal goal-centric approach has limitations possibility of being programmed and the inability to be comparable and distinguishable with intelligent systems consuming a wide range of input and generating a wide range of output. The generalization ability-based approach better encompasses the multidimensional aspects of intelligence and is system and task-independent making it a better alternative to goal goal-centric approach. It also presents intelligence as a spectrum instead of a binary feature enabling it to incorporate and classify various forms of intelligence. Moreover, despite defining generalization as a spectrum and thus intelligence, this approach still allows distinguishing the absolute absence of generalization and the presence of a varying degree of generalization capabilities in an agent. 
 
-###References
+<hr>
+
+<h3>References</h3>
 
 Haugeland, John. 1989. Artificial Intelligence: The Very Idea. MIT Press.
 
-Chollet, François. 2019. “On the Measure of Intelligence.” arXiv [cs.AI]. arXiv. http://arxiv.org/abs/1911.01547.
+Chollet, François. 2019. [“On the Measure of Intelligence.”](http://arxiv.org/abs/1911.01547) arXiv [cs.AI]. arXiv. 
