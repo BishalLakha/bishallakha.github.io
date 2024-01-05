@@ -25,6 +25,21 @@ Even when such systems use learning-based algorithms instead of hard-coded logic
 To avoid this problem Chollet proposes the generalization strength of an agent as a better criterion for intelligence. Generalization strength in this context means flexibility and adaptability to acquire new skills to tackle unseen tasks in an unseen environment. To elaborate, if we consider two agents which have a similar set of knowledge and a similar amount of past experience, the agent with higher intelligence will end up with greater skills. The generalization he is proposing is a developer-aware generalization which is the ability of a system, either learning or static, to handle situations that neither the system nor the developer of the system has encountered before (Chollet, 2019,10). 
 
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blogs/general_intelligence1.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Wozniak’s coffee cup test (Generated using ChatGPT)
+</div>
+
+
+
 In addition to that, the goal-centric criteria for intelligence can have limitations of incomparability. Intelligence can be manifested in various forms and a single set of goals might not be able to encompass all the differences. For instance, a Turing test is solely dependent on language-based abilities which can incorporate other kinds of perceptual intelligence. Along with that, a system good at one goal might not be compared to another system. How can one compare a Go-playing agent with an image-generating system? Which one is more intelligent if they can be considered intelligent? Adopting generalization ability as a criterion can address this challenge. First of all, generalization can have varying degrees enabling classification and comparison of intelligence. An agent can absolutely lack it, or have a local generalization - good at a single or well-scoped set of tasks, or have a broad generalization ability - the ability to handle a broad range of previously unencountered tasks and environments (able to pass Wozniak’s coffee cup test-without prior knowledge of the house, an agent locates the kitchen and brews a pot of coffee. Which means it locates the coffee maker, mugs, coffee, and filters. It puts a filter in the basket, adds the appropriate amount of ground, and fills the water compartment. It starts the brew cycle, waits for it to complete, and then pours it into a mug. ),  or have an extreme generalization - the ability to handle the entire new task which only vaguely or abstractly resembles the previously encountered task. Secondly, this criterion is not limited by the type of input taken by the system and the output it generates freeing it from the limitations faced by the previous criterion. Lastly, it frees an agent from the necessity to pretend to be human or follow a trait of a biological system to tackle new situations and tasks- it can conjure its own approach and no matter how alien it is, if it can handle the situation then the agent can be considered intelligent. 
 
 To sum up, I think Chollet's objection to the goal-centric criteria of intelligence is valid as goal goal-centric approach has limitations possibility of being programmed and the inability to be comparable and distinguishable with intelligent systems consuming a wide range of input and generating a wide range of output. The generalization ability-based approach better encompasses the multidimensional aspects of intelligence and is system and task-independent making it a better alternative to goal goal-centric approach. It also presents intelligence as a spectrum instead of a binary feature enabling it to incorporate and classify various forms of intelligence. Moreover, despite defining generalization as a spectrum and thus intelligence, this approach still allows distinguishing the absolute absence of generalization and the presence of a varying degree of generalization capabilities in an agent. 
+
+**References**
+Haugeland, John. 1989. Artificial Intelligence: The Very Idea. MIT Press.
+Chollet, François. 2019. “On the Measure of Intelligence.” arXiv [cs.AI]. arXiv. http://arxiv.org/abs/1911.01547.
