@@ -2,9 +2,9 @@
 layout: post
 title:  Generalization Ability as a Criteria of Intelligence
 date:   2023-02-13 
-description: essay from Phil 497
-tags: ai , essay
-categories: 
+description: Essay from Phil 497 course at BSU
+tags: ai 
+categories: essay
 ---
 Intelligence is the ability of an agent to pursue and achieve a goal: be it by imitating humans and fooling them as in the Turing test (Haugeland, 1989,6)  or by understanding knowledge  (Haugeland, 1989,11). However, Chollet refuses the idea of goal-specific criteria for intelligence and proposes a new definition “The intelligence of a system is a measure of its skill-acquisition efficiency over a scope of tasks, with respect to priors, experience, and generalization difficulty.” (Chollet, 2019,27). I consider Chollet's definition of intelligence tackles vagueness and objection associated with the goal-specific definition of intelligence and provides better criteria for intelligence.
 
