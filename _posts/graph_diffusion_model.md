@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Diffusion Models
+title:  Graph Diffusion Models
 date:   2024-02-24
 description: Study Notes
 tags: ai 
