@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Generalization Ability as a Criteria of Intelligence
-date:   2023-02-05 
+date:   2023-02-05 21:01:00
 description: Essay from Phil 497 course at BSU
 tags: ai 
 categories: essay
