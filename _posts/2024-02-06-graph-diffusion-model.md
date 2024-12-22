@@ -13,6 +13,19 @@ The phenomenal performance of AI systems for image and video generation such as 
 
 The diffusion model involves two main processes: the forward process (diffusion) and the reverse process (denoising), as illustrated in Fig. 1. The forward process requires gradually degrading the data, such as an image, through a multi-step noise application that converts it into a sample from a Gaussian distribution, discussed in detail in Section 1.1. Conversely, the reverse process, detailed in Section 1.2, involves training a deep neural network to reverse the noising steps, enabling the generation of new data from Gaussian-distributed samples [11]. Unlike other generative models like Generative Adversarial Networks (GAN) [12], diffusion models are easy to train and can scale well on parallel hardware, making them quite suitable for large-scale datasets [11]. They also avoid the problem of instability during training and generate better results in comparison to those algorithms, leading to their increased adoption in research and applications [13].
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blogs/graph_diffusion/diffusion.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 1: Illustration of forward and reverse process on an Image [14]
+</div>
+
+
+
+
+
 ### 1.1 Forward Process
 The forward process incrementally introduces noise into the data, transforming a clean data point $$x_0$$ into a series of increasingly noisy latent variables $$x_1, x_2, \ldots, x_T$$ through a Markov chain defined as:
 
@@ -119,6 +132,16 @@ There are primarily two types of guidance: **classifier guidance** and **classif
 
 ---
 ## 2. Graph Diffusion Models
+
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blogs/graph_diffusion/graph_diffusion.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 2: Forward and reverse process on graph data [18]
+</div>
 
 A graph $G$, defined as a pair $$G = (V, E)$$, is a fundamental structure in mathematics and computer science used to model relationships and interaction between the objects. Here $V$ is a set of vertices and $$E$$ is a set of edges, each connecting a pair of vertices. Graphs can be used to model different complex and interconnected data like social networks, recommendation systems, biological networks, and other areas, which makes adaptation of generative models like diffusion models for graphs quite crucial.
 
