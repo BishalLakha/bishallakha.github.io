@@ -109,23 +109,23 @@ Algorithm 1 and 2 summarize the training and inference procedures for the diffus
 
 ### 1.4 Guided Diffusion
 
-In many applications, like text prompt-based image generation, generating samples from a conditional distribution \( p(x|c) \) is desired where \( c \) is the conditioning variable. But the diffusion model can assign insufficient weight on these conditions, so additional pressure called "guidance" is applied, resulting in guided diffusion [11]. 
+In many applications, like text prompt-based image generation, generating samples from a conditional distribution $$p(x|c)$$ is desired where $$c$$ is the conditioning variable. But the diffusion model can assign insufficient weight on these conditions, so additional pressure called "guidance" is applied, resulting in guided diffusion [11]. 
 
 There are primarily two types of guidance: **classifier guidance** and **classifier-free guidance**.
-1. **Classifier Guidance**: In this approach, a separate classifier model $p(c|x)$is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label $c$ [16].
+1. **Classifier Guidance**: In this approach, a separate classifier model $$p(c|x)$$ is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label $$c$$ [16].
 2. **Classifier-Free Guidance**: In this approach, rather than employing a separate classifier for guidance, conditional and unconditional diffusion processes are jointly trained to achieve the desired outcomes [17].
 ---
 ## 2. Graph Diffusion Models
 
-A graph $G$, defined as a pair $G = (V, E)$, is a fundamental structure in mathematics and computer science used to model relationships and interaction between the objects. Here $V$ is a set of vertices and $E$ is a set of edges, each connecting a pair of vertices. Graphs can be used to model different complex and interconnected data like social networks, recommendation systems, biological networks, and other areas, which makes adaptation of generative models like diffusion models for graphs quite crucial.
+A graph $G$, defined as a pair $$G = (V, E)$$, is a fundamental structure in mathematics and computer science used to model relationships and interaction between the objects. Here $V$ is a set of vertices and $$E$$ is a set of edges, each connecting a pair of vertices. Graphs can be used to model different complex and interconnected data like social networks, recommendation systems, biological networks, and other areas, which makes adaptation of generative models like diffusion models for graphs quite crucial.
 
 As illustrated in Fig 2, DDPM on graphs involves forward and reverse processes where the primary focus is on creating a transition kernel for the Markov chain [18]. Various methods have been proposed to achieve that. Haefeli et al. [19] proposed using discrete noise for the forward Markov process instead of using continuous Gaussian perturbations, which ensured that for every intermediate step, the graph remained discrete, resulting in better and faster sample generation. We discuss the forward and reverse process proposed by [19] in Section 2.1 and 2.2.
 
 ### 2.1 Forward Process
 
-The diffusion model generates a sequence from an initial simple graph $A_0$ (adjacency matrix representing the graph) to white noise $A_T$ through a series of increasingly noisier graphs $A_1, A_2, \ldots, A_T$. Both $A_0$ and $A_T$ are adjacency matrices where $A_0$ is a sample from the dataset and $A_T$ is an Erdős–Rényi [20] random graph.
+The diffusion model generates a sequence from an initial simple graph $$A_0$$ (adjacency matrix representing the graph) to white noise $A_T$ through a series of increasingly noisier graphs $$A_1, A_2, \ldots, A_T$$. Both $$A_0$$ and $$A_T$$ are adjacency matrices where $$A_0$$ is a sample from the dataset and $$A_T$$ is an Erdős–Rényi [20] random graph.
 
-Each element $a_{ij}^t$ of the adjacency matrix between nodes $i$ and $j$ is encoded as a one-hot vector and transformed by a double stochastic matrix $Q_t$ defined as:
+Each element $$a_{ij}^t$$ of the adjacency matrix between nodes $$i$$ and $$j$$ is encoded as a one-hot vector and transformed by a double stochastic matrix $$Q_t$$ defined as:
 
 $$
 Q_t = 
@@ -135,11 +135,11 @@ Q_t =
 \end{bmatrix}
 $$
 
-Here, $\beta_t$ indicates the probability of the edge state not changing. This formulation allows for direct sampling at any timestep $t$ independently for each edge and non-edge, facilitating the simplification of the sampling process without relying on previous timesteps.
+Here, $$\beta_t$$ indicates the probability of the edge state not changing. This formulation allows for direct sampling at any timestep $t$ independently for each edge and non-edge, facilitating the simplification of the sampling process without relying on previous timesteps.
 
 ### 2.2 Reverse Process
 
-Reverse process aims to recover the original graph from the noise. The reverse transition is denoted as $q(A_{t-1}|A_t, A_0)$ and is crucial for training to learn to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph \( A_0 \) to ensure accurate regeneration of the graph given as:
+Reverse process aims to recover the original graph from the noise. The reverse transition is denoted as $$q(A_{t-1}|A_t, A_0)$$ and is crucial for training to learn to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph $$A_0$$ to ensure accurate regeneration of the graph given as:
 
 $$
 q(A_{t-1}|A_t, A_0) = \frac{q(A_t | A_{t-1}) q(A_{t-1} | A_0)}{q(A_t | A_0)}.
