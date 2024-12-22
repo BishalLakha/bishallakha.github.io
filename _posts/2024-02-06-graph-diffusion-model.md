@@ -8,7 +8,6 @@ categories: essay
 ---
 
 
-
 ## 1 Introduction
 The phenomenal performance of AI systems for image and video generation such as DALLE [1], Stable Diffusion [2], and Sora [3] has captured the imagination of people and triggered the interest of many [4, 5, 6]. Underlying these AI systems is a deep learning algorithm called diffusion models or denoising diffusion probabilistic models (DDPM). The diffusion model, first proposed by Sohl-Dickstein et al. [7], and later improved by Ho et al. [8], enabling practical use cases, is a physics-inspired generative model. In physics, diffusion refers to the process by which particles move from regions of higher concentration to regions of lower concentration to reach an equilibrium, mathematically captured by Fick’s laws [9]. These laws describe the rate of diffusion by taking into account the concentration gradient between two points [10]. High-dimensional data also behaves similarly to the randomly moving particles as they seek an optimal distribution or representation, making diffusion suitable for generative tasks [10].
 
@@ -98,7 +97,6 @@ $$
 - \text{D}_{\text{KL}}(q_\phi(x_T|x_0) || p(x_T)) 
 - \sum_{t=2}^T \mathbb{E}_{q_\phi(x_t|x_0)} \left[ \text{D}_{\text{KL}} \left( q_\phi(x_{t-1}|x_t, x_0) || p_\theta(x_{t-1}|x_t) \right) \right]
 $$
-
 The first component of the equation, the reconstruction term, measures how well the model $p_\theta$ can reconstruct the initial data point $x_0$ from the latent variable $x_1$, using the log-likelihood $p_\theta(x_0|x_1)$. The second component involves the KL divergence, which measures the difference between the distribution $q_\phi(x_T|x_0)$ and the prior distribution $p(x_T)$. The last component, the consistency term, sums the KL divergences across transitions for $t = 2$ to $T$, measuring the alignment between the forward transition modeled by $q_\phi(x_{t-1}|x_t, x_0)$ and the reverse transition $p_\theta(x_{t-1}|x_t)$. The ELBO can be further simplified to get a loss function (see [15]):
 
 $$
@@ -114,7 +112,7 @@ Algorithm 1 and 2 summarize the training and inference procedures for the diffus
 In many applications, like text prompt-based image generation, generating samples from a conditional distribution \( p(x|c) \) is desired where \( c \) is the conditioning variable. But the diffusion model can assign insufficient weight on these conditions, so additional pressure called "guidance" is applied, resulting in guided diffusion [11]. 
 
 There are primarily two types of guidance: **classifier guidance** and **classifier-free guidance**.
-1. **Classifier Guidance**: In this approach, a separate classifier model \( p(c|x) \) is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label \( c \) [16].
+1. **Classifier Guidance**: In this approach, a separate classifier model $p(c|x)$is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label $c$ [16].
 2. **Classifier-Free Guidance**: In this approach, rather than employing a separate classifier for guidance, conditional and unconditional diffusion processes are jointly trained to achieve the desired outcomes [17].
 ---
 ## 2. Graph Diffusion Models
@@ -141,7 +139,7 @@ Here, $\beta_t$ indicates the probability of the edge state not changing. This f
 
 ### 2.2 Reverse Process
 
-Reverse process aims to recover the original graph from the noise. The reverse transition is denoted as \( q(A_{t-1}|A_t, A_0) \) and is crucial for training to learn to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph \( A_0 \) to ensure accurate regeneration of the graph given as:
+Reverse process aims to recover the original graph from the noise. The reverse transition is denoted as $q(A_{t-1}|A_t, A_0)$ and is crucial for training to learn to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph \( A_0 \) to ensure accurate regeneration of the graph given as:
 
 $$
 q(A_{t-1}|A_t, A_0) = \frac{q(A_t | A_{t-1}) q(A_{t-1} | A_0)}{q(A_t | A_0)}.
@@ -176,31 +174,60 @@ Machine learning models are generally "black box" in nature, making them untrust
 ---
 ## References
 [1] Aditya Ramesh, Prafulla Dhariwal, Alex Nichol, Casey Chu, and Mark Chen. Hierarchical text-conditional image generation with clip latents, 2022.
+
 [2] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. High-resolution image synthesis with latent diffusion models, 2021.
+
 [3] Video generation models as world simulators — OpenAI.
+
 [4] Thomas Macaulay. OpenAI’s new image generator sparks both excitement and fear, April 2022.
+
 [5] Kevin Roose. AI-generated art is already transforming creative work. *The New York Times*, October 2022.
+
 [6] OpenAI reveals Sora, a tool to make instant videos from written prompts, February 2024.
+
 [7] Jascha Sohl-Dickstein, Eric A. Weiss, Niru Maheswaranathan, and Surya Ganguli. Deep unsupervised learning using nonequilibrium thermodynamics. *(arXiv:1503.03585)*, November 2015. [arXiv:1503.03585 [cond-mat, q-bio, stat]].
+
 [8] Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising diffusion probabilistic models. In *Advances in Neural Information Processing Systems*, volume 33, page 6840–6851. Curran Associates, Inc., 2020.
+
 [9] Fick’s laws of diffusion, July 2024. Page Version ID: 1235588853.
+
 [10] Diffusion models.
-[11] Christopher M. Bishop and Hugh Bishop. *Deep Learning: Foundations and Concepts*. Springer International Publishing, Cham, 2024.
+
+[11] Christopher M. Bishop and Hugh Bishop. *Deep Learning: Foundations and Concepts*. 
+Springer International Publishing, Cham, 2024.
+
 [12] Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial networks, 2014.
+
 [13] Ling Yang, Zhilong Zhang, Yang Song, Shenda Hong, Runsheng Xu, Yue Zhao, Wentao Zhang, Bin Cui, and Ming-Hsuan Yang. Diffusion models: A comprehensive survey of methods and applications. *(arXiv:2209.00796)*, June 2024. [arXiv:2209.00796 [cs]].
+
 [14] Image generation with diffusion models using Keras and TensorFlow — by Vedant Jumle — Towards Data Science.
+
 [15] Stanley H. Chan. Tutorial on diffusion models for imaging and vision. *(arXiv:2403.18103)*, March 2024. [arXiv:2403.18103 [cs]].
+
 [16] Prafulla Dhariwal and Alex Nichol. Diffusion models beat GANs on image synthesis, 2021.
+
 [17] Jonathan Ho and Tim Salimans. Classifier-free diffusion guidance. In *NeurIPS 2021 Workshop on Deep Generative Models and Downstream Applications*, 2021.
+
 [18] Chengyi Liu, Wenqi Fan, Yunqing Liu, Jiatong Li, Hang Li, Hui Liu, Jiliang Tang, and Qing Li. Generative diffusion models on graphs: Methods and applications. *(arXiv:2302.02591)*, August 2023. [arXiv:2302.02591 [cs]].
+
 [19] Kilian Konstantin Haefeli, Karolis Martinkus, Nathanaël Perraudin, and Roger Wattenhofer. Diffusion models for graphs benefit from discrete state spaces, 2023.
+
 [20] Paul Erdős and Alfréd Rényi. On the evolution of random graphs. *Publ. Math. Inst. Hungar. Acad. Sci.*, 5:17–61, 1960.
+
 [21] Ling Yang, Zhilin Huang, Zhilong Zhang, Zhongyi Liu, Shenda Hong, Wentao Zhang, Wenming Yang, Bin Cui, and Luxia Zhang. Graphusion: Latent diffusion for graph generation. *IEEE Transactions on Knowledge and Data Engineering*, page 1–12, 2024.
+
 [22] Iakovos Evdaimon, Giannis Nikolentzos, Michail Chatzianastasis, Hadi Abdine, and Michalis Vazirgiannis. Neural graph generator: Feature-conditioned graph generation using latent diffusion models. *arXiv preprint arXiv:2403.01555*, 2024.
+
 [23] Minkai Xu, Alexander S Powers, Ron O Dror, Stefano Ermon, and Jure Leskovec. Geometric latent diffusion models for 3d molecule generation. In *International Conference on Machine Learning*, pages 38592–38610. PMLR, 2023.
+
 [24] Cong Fu, Keqiang Yan, Limei Wang, Tao Komikado, Koji Maruhashi, Kanji Uchino, Xiaoning Qian, and Shuiwang Ji. A latent diffusion model for protein structure generation.
+
 [25] Jos Torge, Charles Harris, Simon V. Mathis, and Pietro Lio. Diffhopp: A graph diffusion model for novel drug design via scaffold hopping, 2023.
+
 [26] Gabriele Corso, Hannes Stärk, Bowen Jing, Regina Barzilay, and Tommi Jaakkola. Diffdock: Diffusion steps, twists, and turns for molecular docking, 2023.
+
 [27] Mengchun Zhang, Maryam Qamar, Taegoo Kang, Yuna Jung, Chenshuang Zhang, Sung-Ho Bae, and Chaoning Zhang. A survey on graph diffusion models: Generative AI in science for molecule, protein and material. *arXiv preprint arXiv:2304.01565*, 2023.
+
 [28] Zhiqing Sun and Yiming Yang. Diffusco: Graph-based diffusion solvers for combinatorial optimization. *Advances in Neural Information Processing Systems*, 36:3706–3731, 2023.
+
 [29] Jialin Chen, Shirley Wu, Abhijit Gupta, and Rex Ying. D4explainer: In-distribution explanations of graph neural network via discrete denoising diffusion. *Advances in Neural Information Processing Systems*, 36, 2024.
