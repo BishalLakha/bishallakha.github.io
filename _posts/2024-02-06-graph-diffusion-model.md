@@ -109,12 +109,14 @@ Algorithm 1 and 2 summarize the training and inference procedures for the diffus
 
 ### 1.4 Guided Diffusion
 
-In many applications, like text prompt-based image generation, generating samples from a conditional distribution $$p(x\|c)$$ is desired where $$c$$ is the conditioning variable. But the diffusion model can assign insufficient weight on these conditions, so additional pressure called "guidance" is applied, resulting in guided diffusion [11]. 
+In many applications, like text prompt-based image generation, generating samples from a conditional distribution \( p(x \mid c) \) is desired, where \( c \) is the conditioning variable. However, the diffusion model might assign insufficient weight to these conditions. To address this, additional pressure called "guidance" is applied, resulting in guided diffusion [11].
 
 There are primarily two types of guidance: **classifier guidance** and **classifier-free guidance**.
 
-1. **Classifier Guidance**: In this approach, a separate classifier model $$p(c|x)$$ is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label $$c$$ [16].
-2. **Classifier-Free Guidance**: In this approach, rather than employing a separate classifier for guidance, conditional and unconditional diffusion processes are jointly trained to achieve the desired outcomes [17].
+1. **Classifier Guidance**: In this approach, a separate classifier model \( p(c \mid x) \) is utilized along with a diffusion model to drive the sample generation towards desired characteristics defined by the conditional label \( c \) [16].
+
+2. **Classifier-Free Guidance**: In this approach, instead of employing a separate classifier for guidance, conditional and unconditional diffusion processes are jointly trained to achieve the desired outcomes [17].
+
 ---
 ## 2. Graph Diffusion Models
 
@@ -140,11 +142,12 @@ Here, $$\beta_t$$ indicates the probability of the edge state not changing. This
 
 ### 2.2 Reverse Process
 
-Reverse process aims to recover the original graph from the noise. The reverse transition is denoted as $$q(A_{t-1}|A_t, A_0)$$ and is crucial for training to learn to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph $$A_0$$ to ensure accurate regeneration of the graph given as:
+The reverse process aims to recover the original graph from the noise. The reverse transition is denoted as \( q(A_{t-1} \mid A_t, A_0) \) and is crucial for training to learn how to denoise the graphs. The reverse transition probabilities are derived from the forward probabilities with a dependence on the initial graph \( A_0 \), ensuring accurate regeneration of the graph, as given by:
 
-$$
-q(A_{t-1}|A_t, A_0) = \frac{q(A_t | A_{t-1}) q(A_{t-1} | A_0)}{q(A_t | A_0)}.
-$$
+\[
+q(A_{t-1} \mid A_t, A_0) = \frac{q(A_t \mid A_{t-1}) q(A_{t-1} \mid A_0)}{q(A_t \mid A_0)}.
+\]
+
 
 ### 2.3 Latent Diffusion
 
