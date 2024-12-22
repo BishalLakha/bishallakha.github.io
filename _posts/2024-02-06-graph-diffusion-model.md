@@ -14,19 +14,19 @@ The phenomenal performance of AI systems for image and video generation such as 
 The diffusion model involves two main processes: the forward process (diffusion) and the reverse process (denoising), as illustrated in Fig. 1. The forward process requires gradually degrading the data, such as an image, through a multi-step noise application that converts it into a sample from a Gaussian distribution, discussed in detail in Section 1.1. Conversely, the reverse process, detailed in Section 1.2, involves training a deep neural network to reverse the noising steps, enabling the generation of new data from Gaussian-distributed samples [11]. Unlike other generative models like Generative Adversarial Networks (GAN) [12], diffusion models are easy to train and can scale well on parallel hardware, making them quite suitable for large-scale datasets [11]. They also avoid the problem of instability during training and generate better results in comparison to those algorithms, leading to their increased adoption in research and applications [13].
 
 ### 1.1 Forward Process
-The forward process incrementally introduces noise into the data, transforming a clean data point $x_0$ into a series of increasingly noisy latent variables $x_1, x_2, \ldots, x_T$ through a Markov chain defined as:
+The forward process incrementally introduces noise into the data, transforming a clean data point $$x_0$$ into a series of increasingly noisy latent variables $$x_1, x_2, \ldots, x_T$$ through a Markov chain defined as:
 
 $$
 q(x_t|x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t I)
 $$
 
-Here, $\beta_t$ modulates the noise level, and $\mathcal{N}$ denotes a Gaussian distribution. The entirety of the forward process can be expressed as:
+Here, $$\beta_t$$ modulates the noise level, and $$\mathcal{N}$$ denotes a Gaussian distribution. The entirety of the forward process can be expressed as:
 
 $$
 q(x_{1:T}|x_0) = \prod_{t=1}^T q(x_t|x_{t-1})
 $$
 
-A notable aspect of this process is the direct sampling of $x_t$ at any noise level using:
+A notable aspect of this process is the direct sampling of $$x_t$$ at any noise level using:
 
 $$
 q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1 - \bar{\alpha}_t)I)
@@ -42,10 +42,10 @@ $$
 
 #### Algorithm 1: Training a DDPM [15]
 
-1. For every image $x_0$ in your training dataset:
+1. For every image $$x_0$$ in your training dataset:
 2. **Repeat**:
-   - Pick a random time step $t \sim \text{Uniform}[1, T]$.
-   - Draw a sample $x_t \sim \mathcal{N}(x_t|\sqrt{\alpha_t}x_0, (1-\alpha_t)I)$, i.e.,
+   - Pick a random time step $$t \sim \text{Uniform}[1, T]$$.
+   - Draw a sample $$x_t \sim \mathcal{N}(x_t|\sqrt{\alpha_t}x_0, (1-\alpha_t)I)$$, i.e.,
      $$
      x_t = \alpha_t x_0 + \sqrt{1-\alpha_t}z, \, z \sim \mathcal{N}(0, I)
      $$
@@ -55,32 +55,32 @@ $$
      $$
 3. **Until convergence**
 
-You can do this in batches, just like how you train any other neural network. Note that, here, you are training one denoising network $\hat{x}_\phi$ for all noisy conditions.
+You can do this in batches, just like how you train any other neural network. Note that, here, you are training one denoising network $$\hat{x}_\phi$$ for all noisy conditions.
 
 ---
 ### 1.2 Reverse Process
 
-The goal of the reverse process of the DDPM is to reconstruct the clean data by denoising, predicting $x_{t-1}$ from $x_t$ at each step using the equation:
+The goal of the reverse process of the DDPM is to reconstruct the clean data by denoising, predicting $$x_{t-1}$$ from $x_t$ at each step using the equation:
 
 $$
 p_\theta(x_{t-1}|x_t) = \mathcal{N}(x_{t-1}; \mu_\theta(x_t, t), \Sigma_\theta(x_t, t))
 $$
 
-where $\mu_\theta(x_t, t)$ and  $\Sigma_\theta(x_t, t)$ are functions modeled by a neural network $\theta$, determining the mean and covariance of the Gaussian distribution at each reverse step. The entire reverse process can be described as:
+where $$\mu_\theta(x_t, t)$$ and  $$\Sigma_\theta(x_t, t)$$ are functions modeled by a neural network $$\theta$$, determining the mean and covariance of the Gaussian distribution at each reverse step. The entire reverse process can be described as:
 
 $$
 p_\theta(x_{0:T}) = p(x_T) \prod_{t=T}^1 p_\theta(x_{t-1}|x_t)
 $$
 
-This process begins with the assumption that the final noisy data point, $x_T$, follows a Gaussian distribution, typically centered around zero with identity covariance. The subsequent denoising steps iteratively estimate the less noisy preceding states until the original data point $x_0$ is recovered.
+This process begins with the assumption that the final noisy data point, $$x_T$$, follows a Gaussian distribution, typically centered around zero with identity covariance. The subsequent denoising steps iteratively estimate the less noisy preceding states until the original data point $$x_0$$ is recovered.
 
 ---
 
 ##### Algorithm 2: Inference on a DDPM [15]
 
-1. You give a white noise vector $x_T \sim \mathcal{N}(0, I)$.
-2. **For** $t = T, T-1, \ldots, 1$ **do**:
-   1. Calculate $\hat{x}_\theta(x_t)$ using our trained denoiser.
+1. You give a white noise vector $$x_T \sim \mathcal{N}(0, I)$$.
+2. **For** $$t = T, T-1, \ldots, 1$$ **do**:
+   1. Calculate $$\hat{x}_\theta(x_t)$$ using our trained denoiser.
    2. Update according to:
       $$
       x_{t-1} = \frac{(1-\alpha_{t-1})\sqrt{\alpha_t}}{1-\alpha_t} x_t + \frac{(1-\alpha_t)\sqrt{\alpha_{t-1}}}{1-\alpha_t} \hat{x}_\theta(x_t) + \sigma_q(t)z, \, z \sim \mathcal{N}(0, I)
@@ -97,7 +97,7 @@ $$
 - \text{D}_{\text{KL}}(q_\phi(x_T|x_0) || p(x_T)) 
 - \sum_{t=2}^T \mathbb{E}_{q_\phi(x_t|x_0)} \left[ \text{D}_{\text{KL}} \left( q_\phi(x_{t-1}|x_t, x_0) || p_\theta(x_{t-1}|x_t) \right) \right]
 $$
-The first component of the equation, the reconstruction term, measures how well the model $p_\theta$ can reconstruct the initial data point $x_0$ from the latent variable $x_1$, using the log-likelihood $p_\theta(x_0|x_1)$. The second component involves the KL divergence, which measures the difference between the distribution $q_\phi(x_T|x_0)$ and the prior distribution $p(x_T)$. The last component, the consistency term, sums the KL divergences across transitions for $t = 2$ to $T$, measuring the alignment between the forward transition modeled by $q_\phi(x_{t-1}|x_t, x_0)$ and the reverse transition $p_\theta(x_{t-1}|x_t)$. The ELBO can be further simplified to get a loss function (see [15]):
+The first component of the equation, the reconstruction term, measures how well the model $$p_\theta$$ can reconstruct the initial data point $$x_0$$ from the latent variable $$x_1$$, using the log-likelihood $$p_\theta(x_0|x_1)$$. The second component involves the KL divergence, which measures the difference between the distribution $$q_\phi(x_T|x_0)$$ and the prior distribution $$p(x_T)$$. The last component, the consistency term, sums the KL divergences across transitions for $$t = 2$$ to $$T$$, measuring the alignment between the forward transition modeled by $$q_\phi(x_{t-1}|x_t, x_0)$$ and the reverse transition $$p_\theta(x_{t-1}|x_t)$$. The ELBO can be further simplified to get a loss function (see [15]):
 
 $$
 \theta^* = \underset{\theta}{\text{arg min}} \sum_{t=1}^T \frac{1}{2\sigma^2(t)} 
