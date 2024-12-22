@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Graph Diffusion Model and Its Applications
-date:   2024-02-06 21:01:00
+date:   2024-04-09 21:01:00
 description: Study Notes
 tags: ai 
 categories: essay
