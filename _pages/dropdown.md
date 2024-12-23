@@ -10,6 +10,7 @@ children:
     - title: divider
     - title: doodles
       permalink: /projects/
+    - title: divider
     - title: dps nepal
       permalink: https://www.youtube.com/@deadpoetssocietynepal/videos
 ---
