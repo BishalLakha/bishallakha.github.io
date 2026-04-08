@@ -1,0 +1,487 @@
+/*******************************************************************************
+ * Custom modern styles — Bishal Lakha Portfolio
+ ******************************************************************************/
+
+// ---- Typography ----
+body,
+p, h1, h2, h3, h4, h5, h6,
+em, div, li, span, strong, a {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ---- Navbar — glassmorphism ----
+nav#navbar {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: var(--global-nav-bg) !important;
+  border-bottom: 1px solid var(--global-divider-color);
+  box-shadow: none !important;
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+    color: var(--global-text-color) !important;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color-light) !important;
+    transition: color 0.2s ease;
+    padding: 0.4rem 0.75rem !important;
+
+    &:hover, &.active {
+      color: var(--global-theme-color) !important;
+      text-decoration: none;
+    }
+  }
+
+  .dropdown-menu {
+    background: var(--global-nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px var(--global-card-shadow);
+    padding: 0.4rem;
+
+    .dropdown-item {
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 0.45rem 0.85rem;
+      color: var(--global-text-color-light) !important;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: var(--global-theme-color-alpha);
+        color: var(--global-theme-color) !important;
+      }
+    }
+
+    .dropdown-divider {
+      border-color: var(--global-divider-color);
+      margin: 0.3rem 0.5rem;
+    }
+  }
+}
+
+// ---- Dark mode toggle button ----
+.toggle-container button {
+  background: transparent;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--global-text-color-light);
+
+  &:hover {
+    border-color: var(--global-theme-color);
+    background: var(--global-theme-color-alpha);
+    color: var(--global-theme-color);
+  }
+
+  i {
+    color: inherit !important;
+  }
+}
+
+// ---- About page hero ----
+.about-page {
+  // Hero area: name + subtitle + profile
+  .post-header {
+    margin-bottom: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .post-title {
+    font-size: clamp(2.2rem, 6vw, 3.6rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.1 !important;
+    background: var(--hero-name-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--global-theme-color) !important;
+    margin-bottom: 2rem;
+  }
+
+  // Profile image glow + border
+  .profile {
+    img {
+      border: 2px solid var(--global-theme-color-border);
+      box-shadow:
+        0 0 0 6px var(--hero-glow-ring),
+        0 20px 60px var(--hero-glow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+      &:hover {
+        transform: scale(1.03) translateY(-2px);
+        box-shadow:
+          0 0 0 10px var(--hero-glow-ring),
+          0 30px 80px var(--hero-glow);
+      }
+    }
+  }
+
+  // Bio paragraphs
+  article > .clearfix > p {
+    font-size: 0.975rem;
+    line-height: 1.85;
+    color: var(--global-text-color) !important;
+  }
+}
+
+// ---- Mesh gradient background for about page ----
+.about-page-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, var(--hero-glow) 0%, transparent 65%);
+    animation: floatOrb1 18s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, var(--global-theme-color-alpha) 0%, transparent 65%);
+    animation: floatOrb2 22s ease-in-out infinite;
+  }
+}
+
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-4%, 6%) scale(1.05); }
+  66%       { transform: translate(3%, -4%) scale(0.97); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(5%, -5%) scale(1.08); }
+  70%       { transform: translate(-3%, 4%) scale(0.95); }
+}
+
+// ---- Section headings (about page content) ----
+.section-heading {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--global-text-color) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  &::after { display: none; }
+}
+
+// ---- Experience timeline ----
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  margin: 0 0 0.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--global-theme-color),
+      var(--global-theme-color-border),
+      transparent
+    );
+    border-radius: 2px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.75rem;
+
+  &:last-child { padding-bottom: 0; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--global-theme-color);
+    border: 2px solid var(--global-bg-color);
+    box-shadow: 0 0 0 3px var(--global-theme-color-alpha);
+    transform: translateX(-3.5px);
+  }
+}
+
+.timeline-date {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  color: var(--global-theme-color) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.timeline-title {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--global-text-color) !important;
+  margin-bottom: 0.1rem !important;
+}
+
+.timeline-org {
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  color: var(--global-text-color-light) !important;
+  margin-bottom: 0.35rem !important;
+
+  a {
+    color: var(--global-text-color-light) !important;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--global-theme-color) !important;
+      text-decoration: none;
+    }
+  }
+}
+
+.timeline-desc {
+  font-size: 0.875rem !important;
+  color: var(--global-text-color-light) !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+
+// ---- Skill / interest tags ----
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  background: var(--global-theme-color-alpha);
+  color: var(--global-theme-color) !important;
+  border: 1px solid var(--global-theme-color-border);
+  transition: all 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    background: var(--global-theme-color);
+    color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--hero-glow);
+  }
+}
+
+// ---- Cards ----
+.card.hoverable {
+  background: var(--global-card-bg-color) !important;
+  border: 1px solid var(--global-divider-color) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px var(--global-card-shadow) !important;
+    border-color: var(--global-theme-color-border) !important;
+  }
+}
+
+// ---- Post list (blog) ----
+.post-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid var(--global-divider-color);
+    padding: 1.5rem 0;
+
+    &:last-child { border-bottom: none; }
+
+    h3 { margin-bottom: 0.3rem; }
+
+    .post-title {
+      font-weight: 600 !important;
+      font-size: 1.05rem;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-theme-color) !important;
+        text-decoration: none;
+      }
+    }
+
+    p { color: var(--global-text-color-light) !important; }
+
+    .post-meta, .post-tags {
+      font-size: 0.8rem;
+      color: var(--global-text-color-light) !important;
+
+      a { color: var(--global-text-color-light) !important; }
+      a:hover { color: var(--global-theme-color) !important; }
+    }
+  }
+}
+
+// ---- Section dividers (latest posts, publications on about page) ----
+.about-page {
+  h2 {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--global-text-color) !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    a {
+      color: var(--global-text-color) !important;
+      text-decoration: none;
+
+      &:hover { color: var(--global-theme-color) !important; }
+    }
+  }
+}
+
+// ---- Social icons ----
+.social .contact-icons {
+  margin-bottom: 0.5rem;
+
+  a {
+    font-size: 1.4rem;
+    margin-right: 0.85rem;
+    color: var(--global-text-color-light) !important;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: var(--global-theme-color) !important;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+}
+
+.social .contact-note {
+  font-size: 0.8rem;
+  color: var(--global-text-color-light) !important;
+}
+
+// ---- Progress bar ----
+#progress {
+  background: var(--global-theme-color);
+  height: 2px;
+}
+
+// ---- Links ----
+a, table.table a {
+  color: var(--global-theme-color);
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+// ---- Footer ----
+footer {
+  font-size: 0.8rem !important;
+  letter-spacing: 0.01em;
+
+  a { text-decoration: none; }
+}
+
+// ---- Blockquote ----
+blockquote {
+  border-left-color: var(--global-theme-color) !important;
+  border-radius: 0 8px 8px 0;
+}
+
+// ---- Page header (non-about pages) ----
+.post .post-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.2 !important;
+}
+
+.post .post-description {
+  font-size: 1rem;
+  color: var(--global-text-color-light) !important;
+}
+
+// ---- Custom scrollbar ----
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--global-theme-color-border);
+  border-radius: 3px;
+  &:hover { background: var(--global-theme-color); }
+}
+
+// ---- Horizontal rule ----
+hr {
+  border-top: 1px solid var(--global-divider-color) !important;
+  margin: 2rem 0;
+}
+
+// ---- Tag/category labels on blog ----
+.tag-category-list {
+  margin-bottom: 1.5rem;
+
+  a {
+    color: var(--global-text-color-light) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--global-theme-color) !important;
+      text-decoration: none;
+    }
+  }
+}

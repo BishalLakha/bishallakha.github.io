@@ -13,4 +13,7 @@ children:
     - title: divider
     - title: dps nepal
       permalink: https://www.youtube.com/@deadpoetssocietynepal/videos
+    - title: divider
+    - title: goodreads
+      permalink: https://www.goodreads.com/user/show/36552446-bishal-lakha
 ---
